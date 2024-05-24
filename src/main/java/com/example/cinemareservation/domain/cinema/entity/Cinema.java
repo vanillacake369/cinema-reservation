@@ -1,4 +1,4 @@
-package com.example.cinemareservation.domain.cinema;
+package com.example.cinemareservation.domain.cinema.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
