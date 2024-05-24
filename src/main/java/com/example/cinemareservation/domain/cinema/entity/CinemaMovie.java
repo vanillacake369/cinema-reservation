@@ -1,4 +1,4 @@
-package com.example.cinemareservation.domain.cinema;
+package com.example.cinemareservation.domain.cinema.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
