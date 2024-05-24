@@ -1,5 +1,6 @@
 package com.example.cinemareservation.domain.cinema.entity;
 
+import com.example.cinemareservation.domain.movie.entity.Movie;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;

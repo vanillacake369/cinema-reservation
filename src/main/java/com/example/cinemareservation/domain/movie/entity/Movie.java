@@ -1,5 +1,6 @@
-package com.example.cinemareservation.domain.cinema;
+package com.example.cinemareservation.domain.movie.entity;
 
+import com.example.cinemareservation.domain.cinema.entity.CinemaMovie;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
