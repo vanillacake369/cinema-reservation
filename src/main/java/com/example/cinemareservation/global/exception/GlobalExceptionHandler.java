@@ -1,7 +1,5 @@
-package com.example.cinemareservation.domain.cinema.exception;
+package com.example.cinemareservation.global.exception;
 
-import com.example.cinemareservation.global.exception.ErrorCase;
-import com.example.cinemareservation.global.exception.ErrorResponse;
 import com.example.cinemareservation.global.exception.ErrorResponse.ValidationError;
 import java.util.List;
 import lombok.NonNull;
@@ -16,8 +14,19 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = {"com.example.cinemareservation.domain"})
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundException e) {
+		ErrorCase errorCase = ErrorCase.RESOURCE_NOT_FOUND;
+		ErrorResponse errorResponse = ErrorResponse.builder()
+			.code(errorCase.getCode())
+			.message(errorCase.getMessage())
+			.build();
+		return ResponseEntity.status(errorCase.getHttpStatus())
+			.body(errorResponse);
+	}
 
 	@ExceptionHandler(IllegalArgumentException.class)
 	public ResponseEntity<?> handleIllegalArgument(IllegalArgumentException e) {
